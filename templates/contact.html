@@ -1,52 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+  <link href="./static/main.3f6952e4.css" rel="stylesheet">
 
-<head>
+<head id="head-placeholder">
+  <link rel="preload" href="head.html" as="fetch">
   <meta charset="UTF-8">
-  <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta content="width=device-width,initial-scale=1" name="viewport">
-  <meta content="description" name="description">
-  <meta name="google" content="notranslate" />
-  <meta content="Mashup templates have been developped by Orson.io team" name="author">
-
-  <!-- Disable tap highlight on IE -->
-  <meta name="msapplication-tap-highlight" content="no">
-  
-  <link rel="apple-touch-icon" sizes="180x180" href="./static/assets/apple-icon-180x180.png">
-  <link href="./static/assets/favicon.ico" rel="icon">
-
-  <title>Title page</title>  
-
-<link href="./static/main.3f6952e4.css" rel="stylesheet"></head>
+  <!-- O conteúdo do head.html será inserido aqui -->
+</head>
 
 <body class="">
 <div id="site-border-left"></div>
 <div id="site-border-right"></div>
 <div id="site-border-top"></div>
 <div id="site-border-bottom"></div>
- <!-- Add your content of header -->
-<header>
-  <nav class="navbar  navbar-fixed-top navbar-default">
-    <div class="container">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
 
-      <div class="collapse navbar-collapse" id="navbar-collapse">
-        <ul class="nav navbar-nav ">
-          <li><a href="./index.html" title="">01 : Home</a></li>
-          <li><a href="./works.html" title="">02 : Works</a></li>
-          <li><a href="./about.html" title="">03 : About me</a></li>
-          <li><a href="./contact.html" title="">04 : Contact</a></li>
-        </ul>
-
-
-      </div> 
-    </div>
-  </nav>
+<!-- Add your content of header -->
+<header id="header-placeholder">
+  <!-- O conteúdo do head.html será inserido aqui -->
 </header>
 
 <div class="section-container">
@@ -54,7 +25,7 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="section-container-spacer text-center">
-            <h1 class="h2">04 : Contact me</h1>
+            <h1 class="h2">04 : Fale Conosco</h1>
           </div>
           
           <div class="row">
@@ -66,12 +37,12 @@
                         <input name="email" type="email" class="form-control" id="email" placeholder="Email">
                       </div>
                       <div class="form-group">
-                        <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject">
+                        <input name="subject" type="text" class="form-control" id="subject" placeholder="Assunto">
                       </div>
                       <div class="form-group">
-                        <textarea name="message" class="form-control" rows="5" placeholder="Enter your message"></textarea>
+                        <textarea name="message" class="form-control" rows="5" placeholder="Nos conte mais"></textarea>
                       </div>
-                      <button type="submit" class="btn btn-default btn-lg">Send</button>
+                      <button type="submit" class="btn btn-default btn-lg">Enviar</button>
                     </div>
                     <div class="col-md-5 address-container">
                       <ul class="list-unstyled">
@@ -79,13 +50,13 @@
                           <span class="fa-icon">
                             <i class="fa fa-phone" aria-hidden="true"></i>
                           </span>
-                          + 33 9 07 45 12 65
+                          + 55 (41) 9 9758-0862
                         </li>
                         <li>
                           <span class="fa-icon">
                             <i class="fa fa-at" aria-hidden="true"></i>
                           </span>
-                          e-mail@mail.io
+                          leandro.castelani@gmail.com
                         </li>
                         <li>
                           <span class="fa-icon">
@@ -94,7 +65,7 @@
                           42 rue Moulbert 75016 Paris
                         </li>
                       </ul>
-                      <h3>Follow me on social networks</h3>
+                      <h3>Siga-nos nas redes sociais!</h3>
                       <a href="http://www.facebook.com" title="" class="fa-icon">
                         <i class="fa fa-facebook"></i>
                       </a>
@@ -132,6 +103,19 @@
   document.addEventListener("DOMContentLoaded", function (event) {
      navActivePage();
   });
+  document.addEventListener("DOMContentLoaded", function () {
+      loadHTML('head.html', 'head-placeholder');
+      loadHTML('header.html', 'header-placeholder');
+    });
+
+    function loadHTML(file, elementId) {
+      fetch(file)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById(elementId).innerHTML = data;
+        })
+        .catch(err => console.error(err));
+    }
 </script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
